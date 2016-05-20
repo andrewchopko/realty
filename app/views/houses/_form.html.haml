@@ -1,5 +1,12 @@
 = simple_form_for(@house, html: { class: 'form-horizontal' }) do |f|
   = f.input :title, label: "House Title"
   = f.input :description, label: "Description"
+  = f.input :type_of_realty, label: "Type of Realty"
+  = f.input :district, label: "District"
+  = f.input :street, label: "Street"
+  = f.input :price, label: "Price"
+  = f.input :room_quantity, label: "Room Quantity"
+  = f.input :floor, label: "Floor"
+  = f.input :floor_quantity, label: "Floor Quantity"
   %br/
   =f.button :submit, class: "btn btn-success"

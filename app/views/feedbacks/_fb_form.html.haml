@@ -1,0 +1,5 @@
+= simple_form_for(@feedback, html: { class: 'form-horizontal' }) do |f|
+  = f.input :name, label: "Name"
+  = f.input :content, label: "Feedback"
+  %br/
+  =f.button :submit, class: "btn btn-success"

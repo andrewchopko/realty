@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
   resources :houses
-  root "houses#index"
+  resources :feedbacks
+  resources :staticpage
+  root "staticpage#index"
 end

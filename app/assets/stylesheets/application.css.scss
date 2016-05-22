@@ -15,3 +15,610 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome";
+ //colors
+ $color_astra_approx: #f9ebbe;
+ $color_cocoa_brown_approx: #331e1d;
+ $color_copper_approx: #b47f2b;
+
+ //fonts
+ $font_0: Roboto Slab;
+ $font_1: serif;
+
+ //urls
+ $url_1: url(http://csscheckbox.com/checkboxes/dark-check-green.png);
+ $url_2: url(http://csscheckbox.com/checkboxes/lite-orange-check.png);
+
+ //@extend-elements
+ //original selectors
+ //.content .col-md-8 .text, .content .col-md-4 .text
+ %extend_1 {
+ 	background: $color_cocoa_brown_approx;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 15px;
+ 	margin: 30px 0;
+ 	padding: 20px 40px;
+ 	color: $color_copper_approx;
+ }
+
+ //original selectors
+ //.content .search, .content .result, .content .feedBack
+ %extend_2 {
+ 	background: $color_copper_approx;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 10px;
+ 	margin: 30px 0;
+ 	padding: 20px 40px;
+ 	color: $color_cocoa_brown_approx;
+ }
+
+ //original selectors
+ //select, input[type="text"], input[type="password"]
+ %extend_3 {
+ 	width: 95%;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 5px;
+ 	margin-bottom: 20px;
+ 	border: 0;
+ 	background: none;
+ 	border-bottom: 2px solid $color_cocoa_brown_approx;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 0;
+ 	color: $color_cocoa_brown_approx;
+ }
+
+ //original selectors
+ //body .content .result, body .content .feedBack
+ %extend_4 {
+ 	background: none;
+ 	margin: 30px;
+ 	padding: 10px;
+ 	height: 150px;
+ }
+
+
+ @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic);
+
+ body {
+ 	.row {
+ 		margin-right: 0;
+ 		margin-left: 0;
+ 	}
+ 	.content {
+ 		.result {
+ 			@extend %extend_4;
+ 			&:hover {
+ 				//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 				box-shadow: 0 0 10px $color_cocoa_brown_approx;
+ 			}
+ 		}
+ 		.feedBack {
+ 			@extend %extend_4;
+ 		}
+ 		.search {
+ 			//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 			box-shadow: 0 0 10px $color_cocoa_brown_approx;
+ 		}
+ 	}
+ }
+ img {
+ 	margin: auto;
+ 	max-width: 100%;
+ }
+ .logo {
+ 	text-align: center;
+ 	img {
+ 		height: 150px;
+ 	}
+ }
+ .menu {
+ 	background: $color_cocoa_brown_approx;
+ 	height: 201px;
+ 	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 	box-shadow: 0 0 15px $color_cocoa_brown_approx;
+ 	.col-xs-12 {
+ 		padding: 0;
+ 	}
+ 	.nav-pills {
+ 		border: 0;
+ 		background: $color_cocoa_brown_approx;
+ 		margin: auto;
+ 		li a {
+ 			color: $color_copper_approx;
+ 			font-size: 30px;
+ 			font-weight: 700;
+ 			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 			border-radius: 0;
+ 			&:hover {
+ 				background: $color_astra_approx;
+ 				border-bottom: 3px solid $color_copper_approx;
+ 			}
+ 		}
+ 	}
+ }
+ .active {
+ 	border-bottom: 3px solid $color_copper_approx;
+ }
+ .content {
+ 	color: $color_copper_approx;
+ 	padding: 50px;
+ 	margin-left: 105px;
+ 	margin-right: 105px;
+ 	.col-md-4 {
+ 		padding-top: 30px;
+ 		.text {
+ 			@extend %extend_1;
+ 		}
+ 	}
+ 	.search {
+ 		@extend %extend_2;
+ 		.col-md-4 {
+ 			padding-top: 0;
+ 		}
+ 	}
+ 	.result {
+ 		@extend %extend_2;
+ 		img {
+ 			max-height: 126px;
+ 			max-width: 100%;
+ 			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 			border-radius: 15px;
+ 		}
+ 	}
+ 	.feed{
+ 		padding: 50px 150px;
+ 		.feedBack {
+ 			@extend %extend_2;
+ 		}
+ 		.col-md-8 .text {
+ 			@extend %extend_1;
+ 		}
+ 		.feedBacks .feedBack {
+ 			background: $color_copper_approx;
+ 			min-height: 150px;
+ 			.col-md-3 {
+ 				text-align: center;
+ 			}
+ 			img {
+ 				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 				border-radius: 10px;
+ 				max-width: 100%;
+ 				max-height: 130px;
+ 				min-height: 130px;
+ 			}
+ 		}
+ 	}
+ 	.addProperty{
+ 		border-radius: 10px;
+ 		background: $color_copper_approx;
+ 		padding: 50px 150px;
+ 		color: $color_cocoa_brown_approx;
+ 	}
+ }
+ select {
+ 	@extend %extend_3;
+ 	&:focus {
+ 		outline: none;
+ 	}
+ }
+ input[type="text"] {
+ 	@extend %extend_3;
+ 	&:focus {
+ 		outline: none;
+ 	}
+ }
+ input[type="password"] {
+ 	@extend %extend_3;
+ 	&:focus {
+ 		outline: none;
+ 	}
+ }
+ form {
+ 	input[type="numbers"] {
+ 		width: 60px;
+ 		margin-right: 10px;
+ 		margin-top: 10px;
+ 		border: 0;
+ 		background: none;
+ 		border-bottom: 2px solid $color_cocoa_brown_approx;
+ 		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 		border-radius: 0;
+ 		color: $color_cocoa_brown_approx;
+ 		&:focus {
+ 			outline: none;
+ 		}
+ 	}
+ 	input[type="checkbox"] {
+ 		margin-left: 8px;
+ 		margin-right: 3px;
+ 		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 		border-radius: 5px;
+ 		&:focus {
+ 			outline: none;
+ 		}
+ 	}
+ 	input {
+ 		font-size: 30px;
+ 	}
+ 	select {
+ 		font-size: 30px;
+ 	}
+ 	p {
+ 		font-size: 30px;
+ 	}
+ 	.btn-search {
+ 		font-size: 30px;
+ 	}
+ 	.btn-send {
+ 		font-size: 30px;
+ 	}
+ 	.btn-photo {
+ 		font-size: 30px;
+ 	}
+ 	option {
+ 		font-size: 10px;
+ 	}
+ }
+ textarea {
+ 	resize: none;
+ 	background: $color_astra_approx;
+ 	border: 0;
+ 	font-size: 30px;
+ 	width: 95%;
+ 	height: 100px;
+ 	&:focus {
+ 		outline: none;
+ 	}
+ }
+ option {
+ 	color: $color_cocoa_brown_approx;
+ 	background: $color_astra_approx;
+ }
+ .btn-p {
+ 	text-align: right;
+ 	padding-top: 20px;
+ }
+ .result {
+ 	height: 300px;
+ 	border: 1px solid $color_copper_approx;
+ 	.col-md-4 {
+ 		padding: 0;
+ 		text-align: center;
+ 	}
+ }
+ footer {
+ 	color: $color_copper_approx;
+ 	width: 100%;
+ 	height: 100px;
+ 	background: $color_cocoa_brown_approx;
+ 	padding: 0 100px;
+ 	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 	box-shadow: 0 0 15px $color_cocoa_brown_approx;
+ 	bottom: 0;
+ 	.row .col-md-6 {
+ 		h2 {
+ 			font-weight: 700;
+ 			text-align: left;
+ 		}
+ 		.year {
+ 			text-align: right;
+ 		}
+ 	}
+ }
+ .thumbnails {
+ 	margin-top: 10px;
+ 	img {
+ 		height: 80px;
+ 		border: 4px solid $color_copper_approx;
+ 		padding: 1px;
+ 		margin: 0 10px 10px 0;
+ 		&:hover {
+ 			border: 4px solid $color_cocoa_brown_approx;
+ 			cursor: pointer;
+ 		}
+ 	}
+ }
+ .preview {
+ 	height: 500px;
+ 	border: 4px solid $color_copper_approx;
+ 	img {
+ 		padding: 1px;
+ 		max-width: 100%;
+ 		max-height: 490px;
+ 		min-height: 490px;
+ 	}
+ }
+ .map {
+ 	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 	box-shadow: 0 0 15px $color_cocoa_brown_approx;
+ 	text-align: center;
+ }
+ .callBackForm {
+ 	background: $color_copper_approx;
+ 	padding: 10px 15px;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 10px;
+ 	color: $color_cocoa_brown_approx;
+ 	text-align: center;
+ 	input {
+ 		font-size: 30px;
+ 	}
+ 	h3 {
+ 		font-size: 30px;
+ 	}
+ }
+ .btn-send {
+ 	border: 1px solid $color_cocoa_brown_approx;
+ 	background: $color_cocoa_brown_approx;
+ 	color: $color_astra_approx;
+ 	&:hover {
+ 		background: $color_astra_approx;
+ 		color: $color_copper_approx;
+ 	}
+ 	&:visited {
+ 		background: $color_cocoa_brown_approx;
+ 		color: $color_astra_approx;
+ 	}
+ }
+ ::-webkit-input-placeholder {
+ 	color: $color_cocoa_brown_approx;
+ }
+ :-moz-placeholder {
+ 	color: $color_cocoa_brown_approx;
+ }
+ ::-moz-placeholder {
+ 	color: $color_cocoa_brown_approx;
+ }
+ :-ms-input-placeholder {
+ 	color: $color_cocoa_brown_approx;
+ }
+ .numbers {
+ 	font-size: 32px;
+ }
+ .address {
+ 	font-size: 32px;
+ }
+ .vk {
+ 	font-size: 32px;
+ 	margin-top: 100px;
+ }
+ #vk {
+ 	margin-top: 20px;
+ 	a {
+ 		color: $color_copper_approx;
+ 	}
+ }
+ .newFeedback {
+ 	padding: 20px 30px;
+ 	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+ 	border-radius: 10px;
+ 	background: $color_copper_approx;
+ 	color: $color_cocoa_brown_approx;
+ 	border-bottom: 2px solid $color_cocoa_brown_approx;
+ 	font-size: 15px;
+ }
+ #getBack {
+ 	display: none;
+ }
+ .btn-photo {
+ 	border: 1px solid $color_cocoa_brown_approx;
+ 	color: $color_cocoa_brown_approx;
+ 	background: $color_astra_approx;
+ 	&:hover {
+ 		background: $color_astra_approx;
+ 		color: $color_copper_approx;
+ 	}
+ }
+
+ .enter{
+ 	background: $color_copper_approx;
+ 	padding: 10px 30px;
+ 	margin: auto auto;
+ 	width: 35%;
+ 	border-radius: 10px;
+ 	color: $color_cocoa_brown_approx;
+ 	text-align: center;
+ }
+
+ .callBackFormProperty{
+ 	margin-top: 30px !important;
+ }
+
+ .btn-group{
+ 	margin-top: 30px;
+ }
+
+ @media(min-width: 992px) {
+ 	header {
+ 		padding: 3px 30px;
+ 	}
+ 	.content {
+ 		text-align: justify;
+ 		padding: 20px 30px;
+ 	}
+ 	.menu {
+ 		.nav {
+ 			width: 970px;
+ 		}
+ 		.nav-pills li a {
+ 			font-size: 20px;
+ 		}
+ 	}
+ 	footer {
+ 		height: 80px;
+ 		h2 {
+ 			font-size: 16px;
+ 		}
+ 	}
+ 	.callBackForm {
+ 		height: 260px;
+ 		margin-top: -320px;
+ 		input {
+ 			font-size: 20px;
+ 		}
+ 		h3 {
+ 			font-size: 20px;
+ 		}
+ 	}
+ 	form {
+ 		input {
+ 			font-size: 18px;
+ 		}
+ 		select {
+ 			font-size: 18px;
+ 		}
+ 		p {
+ 			font-size: 18px;
+ 		}
+ 		.btn-search {
+ 			font-size: 18px;
+ 		}
+ 		option {
+ 			font-size: 15px;
+ 		}
+ 	}
+ 	.map {
+ 		width: 100%;
+ 		height: 100%;
+ 		margin: 60px 0;
+ 	}
+ 	.contacts {
+ 		margin: 60px 0;
+ 	}
+ 	.numbers {
+ 		font-size: 22px;
+ 	}
+ 	.address {
+ 		font-size: 22px;
+ 	}
+ 	.vk {
+ 		font-size: 22px;
+ 		margin-top: 60px;
+ 	}
+ 	html body {
+ 		padding: auto auto;
+ 		text-align: center;
+ 		.main {
+ 			max-width: 970px;
+ 			margin: auto;
+ 		}
+ 	}
+ }
+ label {
+ 	//Instead of the line below you could use @include user-select($select)
+ 	user-select: none;
+ }
+ .css-label {
+ 	background-image: $url_1;
+ 	margin-right: 10px;
+ 	margin-top: 17px;
+ }
+ .lite-orange-check {
+ 	background-image: $url_2;
+ }
+ html body {
+ 	width: 100%;
+ 	height: 100%;
+ 	font-family: $font_0, $font_1;
+ 	background: $color_astra_approx;
+ 	position: relative;
+ 	margin: 0;
+ 	padding: 0;
+ }
+ .col-md-3 input[type="checkbox"] {
+ 	margin-top: 15px;
+ }
+ .results h1 {
+ 	text-align: center;
+ }
+ p .btn-search {
+ 	border: 1px solid $color_copper_approx;
+ 	background: $color_cocoa_brown_approx;
+ 	color: $color_astra_approx;
+ 	&:hover {
+ 		background: $color_astra_approx;
+ 		color: $color_copper_approx;
+ 	}
+ }
+ .feedBack:hover {
+ 	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+ 	box-shadow: 0 0 10px $color_cocoa_brown_approx;
+ }
+ .search form .col-xs-6 .css-label {
+ 	height: 30px;
+ }
+
+ // CheckBox
+
+ input[type=checkbox].css-checkbox {
+ 	position: absolute;
+ 	overflow: hidden;
+ 	clip: rect(0 0 0 0);
+ 	height: 1px;
+ 	width: 1px;
+ 	margin: -1px;
+ 	padding: 0;
+ 	border: 0;
+ 	&.med {
+ 		+ label.css-label.med {
+ 			padding-left: 22px;
+ 			height: 17px;
+ 			display: inline-block;
+ 			line-height: 17px;
+ 			background-repeat: no-repeat;
+ 			background-position: 0 0;
+ 			font-size: 15px;
+ 			vertical-align: middle;
+ 			cursor: pointer;
+ 		}
+ 		&:checked + label.css-label.med {
+ 			background-position: 0 -17px;
+ 		}
+ 	}
+ 	&.sme {
+ 		+ label.css-label.sme {
+ 			padding-left: 22px;
+ 			height: 16px;
+ 			display: inline-block;
+ 			line-height: 16px;
+ 			background-repeat: no-repeat;
+ 			background-position: 0 0;
+ 			font-size: 15px;
+ 			vertical-align: middle;
+ 			cursor: pointer;
+ 		}
+ 		&:checked + label.css-label.sme {
+ 			background-position: 0 -16px;
+ 		}
+ 	}
+ 	&.lrg {
+ 		+ label.css-label.lrg {
+ 			padding-left: 22px;
+ 			height: 20px;
+ 			display: inline-block;
+ 			line-height: 20px;
+ 			background-repeat: no-repeat;
+ 			background-position: 0 0;
+ 			font-size: 15px;
+ 			vertical-align: middle;
+ 			cursor: pointer;
+ 		}
+ 		&:checked + label.css-label.lrg {
+ 			background-position: 0 -20px;
+ 		}
+ 	}
+ 	+ label.css-label {
+ 		padding-left: 20px;
+ 		height: 15px;
+ 		display: inline-block;
+ 		line-height: 15px;
+ 		background-repeat: no-repeat;
+ 		background-position: 0 0;
+ 		font-size: 15px;
+ 		vertical-align: middle;
+ 		cursor: pointer;
+ 	}
+ 	&:checked + label.css-label {
+ 		background-position: 0 -15px;
+ 	}
+ }

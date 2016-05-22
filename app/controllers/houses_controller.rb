@@ -37,13 +37,12 @@ class HousesController < ApplicationController
   end
 
   def edit
-
   end
 
   private
 
   def house_params
-    params.require(:house).permit(:title, :description, :type, :district, :street, :price, :room_quantity, :floor, :floor_quantity)
+    params.require(:house).permit(:title, :description, :category_id, :district, :street, :price, :room_quantity, :floor, :floor_quantity)
   end
 
   def find_house

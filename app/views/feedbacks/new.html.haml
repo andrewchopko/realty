@@ -1,0 +1,13 @@
+%h1 New Feedback
+
+= render 'fb_form'
+
+%h2 Отзиви Пользователей:
+%div.feedBacks
+  - @fb.each do |fb|
+    %div.feedBack.row
+      %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+        %h3
+          = fb.name
+        %h4
+          = fb.content

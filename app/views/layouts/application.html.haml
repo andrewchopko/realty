@@ -1,7 +1,9 @@
 !!!
 %html
 %head
-  %title Realty2
+  %title
+    = yield(:title)
+    | Empire of Apartments
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
@@ -12,11 +14,11 @@
     %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
       %ul.nav.nav-pills.nav-justified
         %li
-          = link_to "Главная", root_path
+          = link_to "Главная", root_path, class: "active"
         %li
           = link_to "Недвижимость", houses_path
         %li
-          = link_to "Контакты", new_house_path
+          = link_to "Контакты", staticpage_contacts_path
         %li
           = link_to "Отзывы", new_feedback_path
   %div.content

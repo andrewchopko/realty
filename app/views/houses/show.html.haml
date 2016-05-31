@@ -11,5 +11,6 @@
   = @house.room_quantity
 
 = link_to "Home", root_path
-= link_to "Edit", edit_house_path
-= link_to "Delete", house_path(@house), method: :delete
+- if user_signed_in?
+  = link_to "Edit", edit_house_path
+  = link_to "Delete", house_path(@house), method: :delete

@@ -1,6 +1,7 @@
 class HousesController < ApplicationController
 
   before_action :find_house, only: [:show, :edit, :destroy, :update]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :update, :edit]
 
   def index
     @houses = House.all

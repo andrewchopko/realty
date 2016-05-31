@@ -1,7 +1,7 @@
 = provide(:title, "Недвижимость")
+- if user_signed_in?
+  = link_to " Добавить", new_house_path, class: "btn btn-success fa fa-plus-square"
 - @houses.each do |house|
   %h1
     = link_to house.title, house
   %br/
-
-= link_to "New House", new_house_path

@@ -1,13 +1,11 @@
 = provide(:title, "Отзывы")
-%h1 Оставить новый отзыв
-
 = render 'fb_form'
 
 %h2 Отзывы пользователей:
-%div.feedBacks
+.feedBacks
   - @fb.each do |fb|
-    %div.feedBack.row
-      %div.col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .feedBack.row
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12
         %h3
           = fb.name
         %h4

@@ -21,8 +21,9 @@
           = link_to "Контакты", staticpage_contacts_path
         %li
           = link_to "Отзывы", new_feedback_path
-  %div.content
-    = yield
+  .content
+    .row
+      = yield
 %footer
   %div.row
     %div.col-xs-6.col-sm-6.col-md-6.col-lg-6

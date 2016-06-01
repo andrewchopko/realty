@@ -1,5 +1,9 @@
-= simple_form_for(@feedback, html: { class: 'form-horizontal' }) do |f|
-  = f.input :name, label: "Имя"
-  = f.input :content, label: "Отзыв"
-  %br/
-  =f.button :submit, class: "btn btn-success"
+.feed
+  .newFeedback
+    %h2
+      Оставить свой отзыв
+    = simple_form_for(@feedback, html: { class: 'form-horizontal' }) do |f|
+      = f.input :name, label: "Имя"
+      = f.input :content, label: "Отзыв"
+      %br/
+      = f.button :submit,label: "Отправить", class: "btn btn-success"

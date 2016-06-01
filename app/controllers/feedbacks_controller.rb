@@ -19,6 +19,9 @@ class FeedbacksController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def fb_params

@@ -10,7 +10,10 @@
 %p
   = @house.room_quantity
 
-= link_to "Home", root_path
-- if user_signed_in?
-  = link_to "Edit", edit_house_path
-  = link_to "Delete", house_path(@house), method: :delete
+= image_tag @house.image.url
+
+%div.btn.btn-group
+  = link_to " На главную", root_path, class: "btn btn-default fa fa-home"
+  - if user_signed_in?
+    = link_to " Редактировать", edit_house_path, class: "btn btn-primary fa fa-pencil-square-o"
+    = link_to " Удалить", house_path(@house), method: :delete, class: "btn btn-danger fa fa-trash"

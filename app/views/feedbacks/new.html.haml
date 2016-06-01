@@ -1,9 +1,9 @@
 = provide(:title, "Отзывы")
-%h1 New Feedback
+%h1 Оставить новый отзыв
 
 = render 'fb_form'
 
-%h2 Отзиви Пользователей:
+%h2 Отзывы пользователей:
 %div.feedBacks
   - @fb.each do |fb|
     %div.feedBack.row

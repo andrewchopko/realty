@@ -20,7 +20,8 @@ class HousesController < ApplicationController
     if @house.save
       redirect_to @house
     else
-      render 'New'
+      render 'new'
+      #redirect_to root_path
     end
   end
 
@@ -33,7 +34,7 @@ class HousesController < ApplicationController
     if @house.update(house_params)
       redirect_to @house
     else
-      render "Edit"
+      render "edit"
     end
   end
 
@@ -43,7 +44,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:title, :description, :category_id, :district, :street, :price, :room_quantity, :floor, :floor_quantity)
+    params.require(:house).permit(:title, :description, :category_id, :district, :street, :price, :room_quantity, :floor, :floor_quantity, :image)
   end
 
   def find_house

@@ -5,7 +5,11 @@ class FeedbacksController < ApplicationController
 
   def new
     @feedback = Feedback.new
-    @fb = Feedback.all
+    if user_signed_in?
+      @fb = Feedback.find_by_sql("SELECT * FROM feedbacks WHERE public=false")
+    else
+      @fb = Feedback.find_by_sql("SELECT * FROM feedbacks WHERE public=true")
+    end
   end
 
   def create

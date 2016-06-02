@@ -21,7 +21,6 @@ class HousesController < ApplicationController
       redirect_to @house
     else
       render 'new'
-      #redirect_to root_path
     end
   end
 
@@ -44,7 +43,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:title, :description, :category_id, :district, :street, :price, :room_quantity, :floor, :floor_quantity, :image)
+    params.require(:house).permit(:title, :description, :category_id, :district, :street, :price, :room_quantity, :floor, :floor_quantity, :image, :square)
   end
 
   def find_house

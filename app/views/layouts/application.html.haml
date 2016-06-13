@@ -25,6 +25,10 @@
     .row
       = yield
 %footer
+  - if user_signed_in?
+    = link_to "Выйти", destroy_user_session_path, method: :delete
+  - else
+    = link_to "Войти", new_user_session_path
   %div.row
     %div.col-xs-6.col-sm-6.col-md-6.col-lg-6
       %h2 ©All rights reserved

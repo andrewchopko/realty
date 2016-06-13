@@ -1,13 +1,13 @@
 = simple_form_for(@house, html: { class: 'form-horizontal' }) do |f|
-  = f.input :title, label: "House Title"
-  = f.input :description, label: "Description"
-  = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a type of Realty"}
-  = f.input :district, label: "District"
-  = f.input :street, label: "Street"
-  = f.input :price, label: "Price"
-  = f.input :room_quantity, label: "Room Quantity"
-  = f.input :floor, label: "Floor"
-  = f.input :floor_quantity, label: "Floor Quantity"
-  = f.input :image, label: "image"
+  = f.input :title, label: "Заглавие объявления"
+  = f.input :description, label: "Описание"
+  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Выберите тип недвижимости"}
+  = f.input :district, label: "Район"
+  = f.input :street, label: "Улица"
+  = f.input :price, label: "Цена"
+  = f.input :room_quantity, label: "Количество комнат"
+  = f.input :floor, label: "Этаж"
+  = f.input :floor_quantity, label: "Этажность"
+  = f.input :image, label: "Картинка"
   %br/
   =f.button :submit, label: "Добавить", class: "btn btn-success"

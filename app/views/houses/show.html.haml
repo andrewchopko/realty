@@ -1,19 +1,27 @@
 = provide(:title, "Недвижимость")
-%h1
-  = @house.title
-%p
-  = @house.description
-%p
-  = @house.district
-%p
-  = @house.street
-%p
-  = @house.room_quantity
 
-= image_tag @house.image.url
-
-%div.btn.btn-group
-  = link_to " На главную", root_path, class: "btn btn-default fa fa-home"
-  - if user_signed_in?
-    = link_to " Редактировать", edit_house_path, class: "btn btn-primary fa fa-pencil-square-o"
-    = link_to " Удалить", house_path(@house), method: :delete, class: "btn btn-danger fa fa-trash"
+.gallery.col-xs-12.col-sm-12.col-md-8.col-lg-8{:align => "center"}
+  .preview{:align => "center"}
+    = image_tag @house.image.url
+.col-xs-12.col-sm-12.col-md-4.col-lg-4
+  %h2
+    %span= @house.title
+    %span= @house.price.to_s
+    %i.fa.fa-usd{"aria-hidden" => "true"}
+  .callBackForm.callBackFormProperty{:id => ""}
+    %h3
+      %i.fa.fa-phone{"aria-hidden" => "true"}
+      Оставте Ваши данные и мы перезвоним:
+    %form{:action => ""}
+      %input{:placeholder => "Ваше имя", :type => "text"}/
+      %input{:placeholder => "Ваш номер", :type => "text"}/
+      %input.btn.btn-send{:name => "name", :type => "button", :value => "Оставить"}/
+  .btn-group{:role => "group"}
+    = link_to " На главную", root_path, class: "btn btn-default fa fa-home"
+    - if user_signed_in?
+      = link_to " Редактировать", edit_house_path, class: "btn btn-primary fa fa-pencil-square-o"
+      = link_to " Удалить", house_path(@house), method: :delete, class: "btn btn-danger fa fa-trash"
+.dataOfProperty
+  %h3
+    %span= @house.street + ", " + @house.floor.to_s + "/" + @house.floor_quantity.to_s + " Этаж, " + @house.square + " площадь."
+    %h4= simple_format(@house.description)

@@ -3,8 +3,8 @@
 
 %h2 Отзывы пользователей:
 .feedBacks
-  - @fb.each do |fb|
-    .feedBack.row
+  .feedBack.row
+    - @fb.each do |fb|
       .col-xs-12.col-sm-12.col-md-12.col-lg-12
         %h3
           = fb.name

@@ -1,5 +1,7 @@
 class FeedbacksController < ApplicationController
 
+  before_action :find_fb, only: [:show, :update, :destroy, :edit]
+
   def index
   end
 
@@ -22,9 +24,16 @@ class FeedbacksController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   private
 
   def fb_params
     params.require(:feedback).permit(:name, :content, :public)
+  end
+
+  def find_fb
+    @feedback = Feedback.find(params[:id])
   end
 end

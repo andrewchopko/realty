@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602080219) do
+ActiveRecord::Schema.define(version: 20160615110356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "callbacks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +55,21 @@ ActiveRecord::Schema.define(version: 20160602080219) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "square",             default: "-/-/-"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "district"
+    t.string   "street"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.decimal  "min_price"
+    t.decimal  "max_price"
+    t.integer  "min_floor"
+    t.integer  "max_floor"
+    t.integer  "min_floor_quantity"
+    t.integer  "max_floor_quantity"
+    t.integer  "min_room"
+    t.integer  "max_room"
   end
 
   create_table "users", force: :cascade do |t|

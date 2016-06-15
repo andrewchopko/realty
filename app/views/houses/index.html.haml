@@ -1,4 +1,5 @@
 = provide(:title, "Недвижимость")
+= render "searches/search_form"
 - if user_signed_in?
   = link_to " Добавить", new_house_path, class: "btn btn-success fa fa-plus-square"
 .results

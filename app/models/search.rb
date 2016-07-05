@@ -3,18 +3,17 @@ class Search < ActiveRecord::Base
   def search_houses
     houses = House.all
 
-    houses = houses.where(["district LIKE ?", district]) if district.present?
-    houses = houses.where(["street LIKE ?", street]) if street.present?
-    houses = houses.where(["price >= ?", min_price]) if min_price.present?
-    houses = houses.where(["price <= ?", max_price]) if max_price.present?
-    houses = houses.where(["floor >= ?", min_floor]) if min_floor.present?
-    houses = houses.where(["floor <= ?", max_floor]) if max_floor.present?
-    houses = houses.where(["room >= ?", min_room]) if min_room.present?
-    houses = houses.where(["room <= ?", max_room]) if max_room.present?
-    houses = houses.where(["floor_quantity >= ?", min_floor_quantity]) if min_floor_quantity.present?
-    houses = houses.where(["floor_quantity <= ?", max_floor_quantity]) if max_floor_quantity.present?
+    houses = houses.where(["street ILIKE ?", "%#{street}%"]) unless street.blank?
+    houses = houses.where(["price >= ?", min_price]) unless min_price.blank?
+    houses = houses.where(["price <= ?", max_price]) unless max_price.blank?
+    houses = houses.where(["category_id = ?", realty_typ]) unless realty_typ.blank?
+    houses = houses.where(["floor >= ?", min_floor_quantity]) unless min_floor.blank?
+    houses = houses.where(["floor <= ?", max_floor_quantity]) unless max_floor.blank?
+    houses = houses.where(["floor_quantity >= ?", min_floor_quantity]) unless min_floor_quantity.blank?
+    houses = houses.where(["floor_quantity <= ?", max_floor_quantity]) unless max_floor_quantity.blank?
+    houses = houses.where(["room_quantity >= ?", min_room_quantity]) unless min_room_quantity.blank?
+    houses = houses.where(["room_quantity <= ?", max_room_quantity]) unless max_room_quantity.blank?
 
     return houses
   end
-
 end

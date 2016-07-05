@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   resources :houses do
-    resources :searches
     resources :callbacks
   end
+
   resources :feedbacks
+  resources :searches
 
   get 'staticpage/index'
   get 'staticpage/contacts'

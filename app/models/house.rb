@@ -4,12 +4,6 @@ class House < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :category
-
-  #def self.search
-  #  if search
-  #    where(["title LIKE ?", "%#{params[:search]}%"])
-  #  else
-  #    all
-  #  end
-  #end
+  has_many :searches
+  
 end

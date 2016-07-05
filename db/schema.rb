@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615110356) do
+ActiveRecord::Schema.define(version: 20160704182911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,18 +58,19 @@ ActiveRecord::Schema.define(version: 20160615110356) do
   end
 
   create_table "searches", force: :cascade do |t|
+    t.string   "realty_typ"
     t.string   "district"
     t.string   "street"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.decimal  "min_price"
-    t.decimal  "max_price"
+    t.float    "min_price"
+    t.float    "max_price"
+    t.integer  "min_room_quantity"
+    t.integer  "max_room_quantity"
     t.integer  "min_floor"
     t.integer  "max_floor"
     t.integer  "min_floor_quantity"
     t.integer  "max_floor_quantity"
-    t.integer  "min_room"
-    t.integer  "max_room"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|

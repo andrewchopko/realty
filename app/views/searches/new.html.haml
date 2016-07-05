@@ -1,0 +1,35 @@
+= form_for @search do |f|
+  %p
+    = f.label "Тип недвижимости:"
+    %br/
+    = f.collection_select :realty_typ, Category.all, :id, :name, include_blank: true
+  %p
+    = f.label "Район"
+    %br/
+    = f.select :district, options_for_select(@districts), include_blank: true
+  %p
+    = f.label "Улица"
+    %br/
+    = f.text_field :street
+  %p
+    = f.label "Цена: "
+    %br/
+    = f.text_field :min_price, size: 7
+    = f.text_field :max_price, size: 7
+  %p
+    = f.label "Количество комнат: "
+    %br/
+    = f.text_field :min_room_quantity, size: 7
+    = f.text_field :max_room_quantity, size: 7
+  %p
+    = f.label "Этаж: "
+    %br/
+    = f.text_field :min_floor, size: 7
+    = f.text_field :max_floor, size: 7
+  %p
+    = f.label "Этажность: "
+    %br/
+    = f.text_field :min_floor_quantity, size: 7
+    = f.text_field :max_floor_quantity, size: 7
+  %p
+    = f.submit "Поиск"

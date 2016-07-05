@@ -1,11 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  realty_typ: MyString
+  district: MyString
+  street: MyString
+  min_price: 1.5
+  max_price: 1.5
+  min_room_quantity: 1
+  max_room_quantity: 1
+  min_floor: 1
+  max_floor: 1
+  min_floor_quantity: 1
+  max_floor_quantity: 1
+
+two:
+  realty_typ: MyString
+  district: MyString
+  street: MyString
+  min_price: 1.5
+  max_price: 1.5
+  min_room_quantity: 1
+  max_room_quantity: 1
+  min_floor: 1
+  max_floor: 1
+  min_floor_quantity: 1
+  max_floor_quantity: 1

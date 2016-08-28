@@ -27,6 +27,14 @@ class FeedbacksController < ApplicationController
   def edit
   end
 
+  def update
+  end
+
+  def public_update
+    @feedback = Feedback.find(params[:id])
+    @feedback.update_attribute(:public, true)
+    redirect_to new_feedback_path
+  end
   private
 
   def fb_params

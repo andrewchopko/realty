@@ -3,10 +3,15 @@
 
 %h2 Отзывы пользователей:
 .feedBacks
-  .feedBack.row{ :style => "  background: #b47f2b;  border-radius: 10px;  margin: 30px 0;    padding: 20px 40px;    color: #331e1d; " }
+  .feedBack.row
     - @fb.each do |fb|
-      .col-xs-12.col-sm-12.col-md-12.col-lg-12
-        %h3
-          = fb.name
-        %h4
-          = fb.content
+      .feedBack
+        .col-xs-10.col-sm-10.col-md-10.col-lg-10
+          %h3= fb.name
+          %h4= fb.content
+        - if user_signed_in?
+          .col-xs-2.col-sm-2.col-md-2.col-lg-2.btn-group
+            = link_to feedback_valid_path(fb), method: :post do
+              %i.fa.fa-thumbs-up.fa-2x
+            = link_to feedback_path(fb), method: :delete do
+              %i.fa.fa-thumbs-down.fa-2x

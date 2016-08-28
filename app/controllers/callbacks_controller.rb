@@ -1,6 +1,7 @@
 class CallbacksController < ApplicationController
 
   before_action :find_cb, only: [:edit, :update, :show, :destroy]
+  before_action :set_house
 
   def index
     @callbacks = Callback.all
@@ -11,11 +12,14 @@ class CallbacksController < ApplicationController
   end
 
   def create
-    @callback = Callback.new(callback_params)
+    @callback = Callback.new cb_params
+    @callback.house_id = @house.id
+
     if @callback.save
       redirect_to root_path
     else
       render "new"
+    end
   end
 
   def edit
@@ -32,11 +36,15 @@ class CallbacksController < ApplicationController
 
   private
 
-  def callback_params
+  def cb_params
     params.require(:callback).permit(:name, :number)
   end
 
   def find_cb
     @callback = Callback.find(params[:id])
+  end
+
+  def set_house
+    @house = House.find(params[:house_id])
   end
 end

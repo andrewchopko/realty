@@ -5,5 +5,5 @@ class House < ActiveRecord::Base
 
   belongs_to :category
   has_many :searches
-  
+  has_many :callbacks
 end

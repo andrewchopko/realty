@@ -8,14 +8,7 @@
     %span= @house.title
     %span= @house.price.to_s
     %i.fa.fa-usd{"aria-hidden" => "true"}
-  .callBackForm.callBackFormProperty{:id => ""}
-    %h3
-      %i.fa.fa-phone{"aria-hidden" => "true"}
-      Оставте Ваши данные и мы перезвоним:
-    %form{:action => ""}
-      %input{:placeholder => "Ваше имя", :type => "text"}/
-      %input{:placeholder => "Ваш номер", :type => "text"}/
-      %input.btn.btn-send{:name => "name", :type => "button", :value => "Оставить"}/
+  = render 'callbacks/form'
   .btn-group{:role => "group"}
     = link_to " На главную", root_path, class: "btn btn-default fa fa-home"
     - if user_signed_in?

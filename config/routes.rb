@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'house_photos/create'
+
+  get 'house_photos/edit'
+
   devise_for :users
 
   resources :houses do

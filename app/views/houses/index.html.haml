@@ -6,12 +6,12 @@
   - @houses.each do |house|
     .row.result
       .col-xs-3.col-sm-3.col-md-3.col-lg-3{:style => "text-align: center"}
-        = link_to image_tag(house.image.url), house
+        =# link_to image_tag(house.house_photos.first.image.url), house
       .col-xs-7.col-sm-7.col-md-7.col-lg-7
         %h3
           = link_to house.district + ", " + house.street, house
         %h4
-          = "Этаж: "+house.floor.to_s+"/"+house.floor_quantity.to_s+", Площадь: " + house.square + ", Комнат: " + house.room_quantity.to_s + ", " + house.category.name.downcase
+          = "Этаж: "+house.floor.to_s+"/"+house.floor_quantity.to_s+", Площадь: " + house.square_all.to_s + "/"+ house.square_live.to_s + "/" + house.square_kitchen.to_s + ", Комнат: " + house.room_quantity.to_s + ", " + house.category.name.downcase
       .col-xs-2.col-sm-2.col-md-2.col-lg-2.cost
         %h2
           = house.price.to_s

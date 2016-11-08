@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821130955) do
+ActiveRecord::Schema.define(version: 20161019213346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,21 @@ ActiveRecord::Schema.define(version: 20160821130955) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "house_photos", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "house_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "houses", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "district"
     t.string   "street"
     t.integer  "price"
@@ -55,7 +65,9 @@ ActiveRecord::Schema.define(version: 20160821130955) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "square",             default: "-/-/-"
+    t.float    "square_all"
+    t.float    "square_kitchen"
+    t.float    "square_live"
   end
 
   create_table "searches", force: :cascade do |t|

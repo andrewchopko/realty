@@ -1,8 +1,15 @@
 = provide(:title, "Недвижимость")
 
 .gallery.col-xs-12.col-sm-12.col-md-8.col-lg-8{:align => "center"}
-  .preview{:align => "center"}
-    = image_tag @house.image.url
+  - unless @photos.empty?
+    .preview{:align => "center"}
+      = image_tag(@photos[0].image.url, name: 'preview')
+    - i = 0
+    - size = @photos.size
+  .thumbnails
+    - while i < size
+      = image_tag(@photos[i].image.url, onClick: "preview.src=img#{i}.src".html_safe, name: "img#{i}")
+      - i += 1
 .col-xs-12.col-sm-12.col-md-4.col-lg-4
   %h2
     %span= @house.title
@@ -10,11 +17,11 @@
     %i.fa.fa-usd{"aria-hidden" => "true"}
   = render 'callbacks/form'
   .btn-group{:role => "group"}
-    = link_to " На главную", root_path, class: "btn btn-default fa fa-home"
+    = link_to "На главную", root_path, class: "btn btn-default fa fa-home"
     - if user_signed_in?
       = link_to " Редактировать", edit_house_path, class: "btn btn-primary fa fa-pencil-square-o"
       = link_to " Удалить", house_path(@house), method: :delete, class: "btn btn-danger fa fa-trash"
 .dataOfProperty
   %h3
-    %span= @house.street + ", " + @house.floor.to_s + "/" + @house.floor_quantity.to_s + " Этаж, " + @house.square + " площадь."
+    %span= @house.street + ", " + @house.floor.to_s + "/" + @house.floor_quantity.to_s + " Этаж, " + @house.square_all.to_s + "/"+ @house.square_live.to_s + "/" + @house.square_kitchen.to_s + " площадь."
     %h4= simple_format(@house.description)

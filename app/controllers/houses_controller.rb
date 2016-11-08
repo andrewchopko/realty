@@ -9,15 +9,20 @@ class HousesController < ApplicationController
 
   def new
     @house = House.new
+    @house.house_photos.build
   end
 
   def show
+    @photos = @house.house_photos
   end
 
   def create
     @house = House.new(house_params)
 
     if @house.save
+      if params[:images]
+        params[:images].each { |image| @house.house_photos.create(image: image) }
+      end
       redirect_to @house
     else
       render 'new'
@@ -38,12 +43,16 @@ class HousesController < ApplicationController
   end
 
   def edit
+    @house.house_photos.build
   end
 
   private
 
   def house_params
-    params.require(:house).permit(:title, :description, :category_id, :district, :street, :price, :room_quantity, :floor, :floor_quantity, :image, :square)
+    params.require(:house).permit(:title, :description,
+    :category_id, :district, :street, :price, :room_quantity,
+    :floor, :floor_quantity, :image, :square_all, :square_kitchen,
+    :square_live, house_photos_attributes: [:image, :_destroy] )
   end
 
   def find_house

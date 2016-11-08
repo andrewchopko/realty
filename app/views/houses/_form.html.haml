@@ -1,13 +1,17 @@
-= simple_form_for(@house, html: { class: 'form-horizontal' }) do |f|
+= simple_form_for(@house, html: { class: 'form-horizontal', multipart: true }) do |f|
   = f.input :title, label: "Заглавие объявления"
   = f.input :description, label: "Описание"
   = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Выберите тип недвижимости"}
+  = f.input :square_all, label: "Общая площадь"
+  = f.input :square_live, label: "Жилая площадь"
+  = f.input :square_kitchen, label: "Площадь кухни"
   = f.input :district, label: "Район"
   = f.input :street, label: "Улица"
   = f.input :price, label: "Цена"
   = f.input :room_quantity, label: "Количество комнат"
   = f.input :floor, label: "Этаж"
   = f.input :floor_quantity, label: "Этажность"
-  = f.input :image, label: "Картинка"
+  = f.label "Фото", class: 'control-label'
+  = file_field_tag "images[]", type: :file, multiple: true
   %br/
-  =f.button :submit, label: "Добавить", class: "btn btn-success"
+  =f.button :submit, "Добавить", class: "btn btn-success"

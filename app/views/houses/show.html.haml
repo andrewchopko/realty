@@ -6,16 +6,15 @@
       = image_tag(@photos[0].image.url, name: 'preview')
     - i = 0
     - size = @photos.size
-  .thumbnails
-    - while i < size
-      = image_tag(@photos[i].image.url, onClick: "preview.src=img#{i}.src".html_safe, name: "img#{i}")
-      - i += 1
+    .thumbnails
+      - while i < size
+        = image_tag(@photos[i].image.url, onClick: "preview.src=img#{i}.src".html_safe, name: "img#{i}")
+        - i += 1
 .col-xs-12.col-sm-12.col-md-4.col-lg-4
   %h2
     %span= @house.title
     %span= @house.price.to_s
     %i.fa.fa-usd{"aria-hidden" => "true"}
-  = render 'callbacks/form'
   .btn-group{:role => "group"}
     = link_to "На главную", root_path, class: "btn btn-default fa fa-home"
     - if user_signed_in?

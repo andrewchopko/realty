@@ -36,6 +36,9 @@ class HousesController < ApplicationController
 
   def update
     if @house.update(house_params)
+      if params[:images]
+        params[:images].each { |image| @house.house_photos.create(image: image) }
+      end
       redirect_to @house
     else
       render "edit"

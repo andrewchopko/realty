@@ -1,8 +1,0 @@
-.callBackForm.callBackFormProperty{:id => ""}
-  %h3
-    %i.fa.fa-phone{"aria-hidden" => "true"}
-    Оставьте Ваши данные и мы перезвоним:
-  = simple_form_for [@house, @house.callbacks.build] do |f|
-    = f.input :name, label_html: { class: 'hide_this' }, placeholder: "Введите Ваше имя"
-    = f.input :number, label_html: { class: 'hide_this' }, placeholder: "Введите Ваш номер"
-    = f.button :submit, "Оставить"

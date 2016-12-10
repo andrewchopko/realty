@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :houses do
-    resources :callbacks
-  end
+  resources :houses
   resources :feedbacks
   resources :searches
 
